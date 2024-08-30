@@ -1,3 +1,64 @@
+<!--
+
+Maine ye project 2 din me bs night me kam krk bnaya hai office se aane ke baad 
+
+
+
+1. User id no 1 is work as a admin 
+2. Only admin handle the users roll
+3. when user is login then show the add blog page, on add blog page shows manage blog list button, logout button and user roll button show
+only  to admin 
+4. after add blog then show blog list.
+5. list is paginate using paginate class.
+6. in list show the edit blog button show  only to roll authorised user and delete button show only to roll authorised user
+7. click in blog title the show the public blog page and also you click on preview button then also show the block public page 
+8. and add blog search functionality by title and description 
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
