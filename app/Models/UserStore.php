@@ -17,5 +17,5 @@ class UserStore extends Model
      *
      * @var array
      */
-    protected $hidden = array('name','  ', 'description', 'file');
+    protected $hidden = array('title', 'description', 'file');
 }

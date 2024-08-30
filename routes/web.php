@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BlogController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,15 +20,34 @@ Route::group(['middleware' => 'guest'], function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'homePage'])->name('home.page');
+
+    Route::get('/', [BlogController::class, 'addBlogPage'])->name('add.blog.view');
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('/store-product', [HomeController::class, 'store'])->name('store');
-    Route::get('/product', [HomeController::class, 'show'])->name('show');
 
-    Route::get('/edit/{id}', [HomeController::class,'edit'])->name('edit');
+    Route::post('/store-product', [BlogController::class, 'store'])->name('store');
+
+    Route::get('/product', [BlogController::class, 'show'])->name('show');
+
+    Route::get('/edit/{id}', [BlogController::class,'edit'])->name('edit');
   
-    Route::post('/update/{id}',[HomeController::class, 'update'])->name('update');
+    Route::post('/update/{id}',[BlogController::class, 'update'])->name('update');
 
-    Route::get('/preview/{id}', [HomeController::class,'ProductPreview'])->name('product.preview');
+    Route::get('/preview/{id}', [BlogController::class,'ProductPreview'])->name('product.preview');
+
+    Route::get('/delete/{id}',[BlogController::class, 'deleteBlog'])->name('blog.delete');
+
+//    user route
+    Route::get('/user-roll', [BlogController::class, 'userRollList'])->name('user.roll.list');
+
+    Route::post('/user-roll-add/{id}', [BlogController::class, 'addUserRoll'])->name('add.user.roll');
+
+    Route::get('/edit-user/{id}', [BlogController::class,'editUser'])->name('edit.user');
+
+    Route::post('/update-user/{id}',[BlogController::class, 'updateUser'])->name('update.user');
+
+    Route::get('/delete-user/{id}',[BlogController::class, 'deleteUser'])->name('delete.user');
+
+    Route::post('/search-blog',[BlogController::class, 'searchBlog'])->name('search.data');
 
 });

@@ -20,6 +20,9 @@ class User extends Authenticatable
         'firstname',
         'username',
         'password',
+        'roll_title',
+        'delete_roll',
+        'edit_roll',
     ];
 
     /**

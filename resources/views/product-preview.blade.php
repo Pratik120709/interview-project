@@ -18,8 +18,7 @@
                 <img src="{{asset('/storage/upload/tmp/'.$data->file)}}" height="300" width="350"alt="Product Image" >
 
                 <div class="card-body">
-                    <h5 class="card-title">{{$data->name}}</h5>
-                    <p class="card-text">${{$data->amount}}</p>
+                    <h5 class="card-title">{{$data->title}}</h5>
                     <p class="card-text">{{$data->description}}</p>
             </div>
         </div>

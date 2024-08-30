@@ -14,13 +14,11 @@
 <body>
 <div class="d-flex justify-content-center mt-5">
     <div class="w-50 border p-5 rounded bg-light">
-        <div class="text-center"><h2>Update Product Form</h2></div>
+        <div class="text-center"><h2>Update Blog</h2></div>
         <form class="" id="formSubmit">
             @csrf
-            <label>Name</label>
-        <input type="text" class="form-control mb-3" name="name" value="{{$data->name}}" placeholder="Name">
-            <label>Amount</label>
-        <input type="number" class="form-control mb-3" name="amount" value="{{$data->amount}}" placeholder="Amount">
+            <label>Title</label>
+        <input type="text" class="form-control mb-3" name="title" value="{{$data->title}}" placeholder="Title">
             <label>Description</label>
         <textarea class="form-control mb-3" name="description" value="{{$data->description}}" placeholder="Description">{{$data->description}}</textarea>
         <label>Upload Image</label>

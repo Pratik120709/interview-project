@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
    
     /**
-     * View home page
+     * View add blog page
      ***********************************/
     public function viewMessage()
     {
@@ -30,7 +30,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($request->only('username', 'password'))) {
-            return redirect()->route('home.page');
+            return redirect()->route('add.blog.view');
         } else {
             return redirect()->route('login')->withErrors('Invalid credentials');
         }
@@ -55,7 +55,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($request->only('username', 'password'))) {
-            return redirect()->route('home.page');
+            return redirect()->route('add.blog.view');
         } else {
             return redirect()->route('sign.up')->withErrors('Registration error');
         }

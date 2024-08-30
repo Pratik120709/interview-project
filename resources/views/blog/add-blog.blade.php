@@ -26,9 +26,16 @@
 <div class="w-50 border p-5 rounded bg-light">
     <div class="d-flex justify-content-between mb-3 ">
     <div class="text-center text-success"><h2>
-        Product Form</h2></div>
+        Add Blog </h2></div>
     <div class="">
-        <a type="button" class="ms-5 btn-warning btn" href="{{ route('show')}}" >Show all Products
+        @php
+        $getUserData = Auth::user();
+    @endphp
+    
+    @if($getUserData['id'] == 1)
+        <a class="btn btn-success float-right mb-3 mx-2" href="{{route('user.roll.list')}}">User Roll </a>
+        @endif
+        <a type="button" class="ms-5 btn-warning btn" href="{{ route('show')}}" >Manage Blog list
         </a>
     <a type="button" class="ms-5 btn-danger btn" data-toggle="modal" data-target="#myModal">Logout
     </a>
@@ -36,14 +43,15 @@
     </div>
     <form class="" id="formSubmit">
         @csrf
-        <label>Name</label>
-    <input type="text" class="form-control mb-3" name="name" placeholder="Name">
-        <label>Amount</label>
-    <input type="number" class="form-control mb-3" name="amount" placeholder="Amount">
+        <label for="title">Title</label>
+    <input type="text" class="form-control mb-3" name="title" placeholder="Title">
+    <span class="text-danger title_err"></span>
         <label>Description</label>
-    <textarea type="number" class="form-control mb-3" name="description" placeholder="Description"></textarea>
+    <textarea  class="form-control mb-3" name="description" placeholder="Description"></textarea>
+    <span class="text-danger description_err"></span>
     <label>Upload Image</label>
     <input type="file" class="form-control mb-5" name="file" placeholder="Upload Image">
+    <span class="text-danger file_err"></span>
     <div class="text-center">
     <input type="submit" class="mb-2 btn btn-success px-4 py-2" value="Submit">
     </div>
@@ -78,6 +86,7 @@
 $('#formSubmit').submit('submit', function(e) {
     e.preventDefault();
 
+
     var formData = new FormData(this);
 
     $.ajax({
@@ -90,11 +99,13 @@ $('#formSubmit').submit('submit', function(e) {
             alert(response.message);
             window.location = "{{ route('show')}}";
         },
-        error: function(xhr, status, error) {
-            console.log('Error:', xhr.responseText);
-        }
+        error: function(xhr, status, error)   
+        {                  // Clear error messages
+                    $('.title_err, .description_err, .file_err').text('');
+                } 
+       });
     });
-});
+
 
 </script>
 </body>

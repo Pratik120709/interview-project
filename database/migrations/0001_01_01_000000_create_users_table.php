@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('username')->unique();
+            $table->string('roll_title',200)->nullable();
+            $table->string('delete_roll',200)->nullable();
+            $table->string('edit_roll',200)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
