@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('delete_roll',200)->nullable();
             $table->string('edit_roll',200)->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('google_id')->nullable();
+            $table->string('github_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\RazorpayController;
+use App\Http\Controllers\GoogleAuthController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -16,6 +18,12 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::post('/login-user', [AuthController::class, 'loginProcess'])->name('form.login')->middleware('throttle:2,1');
     Route::post('/sign-up', [AuthController::class, 'registerProcess'])->name('form.register')->middleware('throttle:2,1');
+
+    Route::get('/redirect', [GoogleAuthController::class, 'redirect'])->name('google.redirect');
+    Route::get('/google/callback', [GoogleAuthController::class, 'callbackGoogle'])->name('callbackGoogle');
+
+    Route::get('/github', [GoogleAuthController::class, 'githubRedirect'])->name('github.redirect');
+    Route::get('/github/callback', [GoogleAuthController::class, 'callbackgithub'])->name('callbackgithub');
 });
 
 
@@ -51,3 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/search-blog',[BlogController::class, 'searchBlog'])->name('search.data');
 
 });
+
+
+Route::get('/pay',[RazorpayController::class, 'razorePay'])->name('razore.pay');
+Route::post('/pay/checkout',[RazorpayController::class, 'razorePaycheckout'])->name('razorpay.checkout');

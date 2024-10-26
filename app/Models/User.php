@@ -20,6 +20,8 @@ class User extends Authenticatable
         'firstname',
         'username',
         'password',
+        'google_id',
+        'github_id',
         'roll_title',
         'delete_roll',
         'edit_roll',
